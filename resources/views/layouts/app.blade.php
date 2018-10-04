@@ -26,7 +26,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Magazin') }}
-                    <br><small>Лучшие продукты для вас</small>
+                    <br><small>Одежда лучшего качества</small>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -88,7 +88,7 @@
                     $categories = App\Category::all();
                     ?>
                     @foreach($categories as $category)
-                        <li class="nav-item"><a class="nav-link" href="">{{$category->name}}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/categories/{{$category->id}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -127,9 +127,9 @@
                     <div class="col-4">
                         <h3>Категории</h2>
                         <ul>
-                        @foreach($categories as $category)
+                          @foreach($categories as $category)
                             <li><a href="">{{$category->name}}</a></li>
-                        @endforeach
+                          @endforeach
                         </ul>
                     </div>
                 </div>

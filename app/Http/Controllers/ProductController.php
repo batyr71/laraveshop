@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create($request->all());
-        return redirect('products/create')->with('success','product has been added');
+        return redirect('products/create')->with('success','product has been added'); 
     }
 
     /**
@@ -51,7 +51,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show')->with('product', $product);
     }
 
     /**

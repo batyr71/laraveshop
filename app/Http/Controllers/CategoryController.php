@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -37,7 +38,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $product = Category::create($request->all());
-        return redirect('categories')->with('success','product has been added');
+        return redirect('categories/create')->with('success','product has been added');
     }
 
     /**
@@ -48,7 +49,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $products = Product::where('category_id', $category->id)->get();
+        $category = $category->name;
+        return view('categories.show')->with([ 'products'=> $products, 'category' => $category ] );
     }
 
     /**

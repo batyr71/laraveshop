@@ -8,8 +8,8 @@ class Category extends Model
 {
     protected $fillable = ['name', 'description'];
 
-    public function category()
+    public function product()
     {
-        return $this->hasMany('App\Category');
+        return $this->hasMany('App\Product');
     }
 }

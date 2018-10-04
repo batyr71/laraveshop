@@ -8,6 +8,7 @@ class PageController extends Controller
 {
     public function welcome()
     {
-        return view('welcome');
+        $products = \App\Product::inRandomOrder()->take(9)->get();
+        return view('welcome')->with('products', $products);
     }
 }
